@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserClass from "../Data/userClass";
 import userArray from "../Data/userArray";
+import { Container, Row, Col, Form } from "react-bootstrap"; // Import Bootstrap components
 
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     username: "",
     email: "",
+    phoneNumber: "",
     password: "",
     repeatPassword: "",
   });
@@ -25,6 +27,22 @@ const Register = () => {
       setErrorMessage(
         "Username should be 4 to 20 characters and contain only letters, numbers, '-' or '_'"
       );
+      return;
+    }
+    // check if username already exists
+    const user = userArray.find((user) => user.username === formData.username);
+    if (user) {
+      // User exists
+      console.log("User exists");
+      // Redirect to home page or perform further actions
+      setErrorMessage("Username already exists");
+      return;
+    }
+
+    // Validate for phone number
+    const phoneNumberRegex = /^(\+201|01|00201)[0-2,5]{1}[0-9]{8}$/;
+    if (!phoneNumberRegex.test(formData.phoneNumber)) {
+      setErrorMessage("Invalid phone number");
       return;
     }
 
@@ -56,6 +74,7 @@ const Register = () => {
     const newUser = new UserClass(
       formData.name,
       formData.email,
+      formData.phoneNumber,
       formData.password,
       "user"
     );
@@ -71,102 +90,128 @@ const Register = () => {
   };
 
   return (
-    <div className="login">
-      <h2 className="text-center text-muted">Register</h2>
-      <div className="register-form active" aria-labelledby="tab-register">
-        <form>
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="registerName">
-              Name
-            </label>
-            <input
-              type="text"
-              id="registerName"
-              className="form-control"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-            />
-          </div>
+    <Container className="vh-100">
+      <Row className="justify-content-center align-items-center h-100">
+        <Col md={6} lg={4}>
+          <div>
+            <h2 className="text-center text-muted">Register</h2>
+            <div
+              className="register-form active"
+              aria-labelledby="tab-register"
+            >
+              <form>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="registerName">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="registerName"
+                    className="form-control"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="registerUsername">
-              Username
-            </label>
-            <input
-              type="text"
-              id="registerUsername"
-              className="form-control"
-              name="username"
-              value={formData.username}
-              onChange={handleInputChange}
-            />
-          </div>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="registerUsername">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    id="registerUsername"
+                    className="form-control"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="registerEmail">
-              Email
-            </label>
-            <input
-              type="email"
-              id="registerEmail"
-              className="form-control"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-          </div>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="registerEmail">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="registerEmail"
+                    className="form-control"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="registerPassword">
-              Password
-            </label>
-            <input
-              type="password"
-              id="registerPassword"
-              className="form-control"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-            />
-          </div>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="registerUsername">
+                    Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    id="registerPhoneNumber"
+                    className="form-control"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-          <div className="form-outline mb-4">
-            <label className="form-label" htmlFor="registerRepeatPassword">
-              Repeat password
-            </label>
-            <input
-              type="password"
-              id="registerRepeatPassword"
-              className="form-control"
-              name="repeatPassword"
-              value={formData.repeatPassword}
-              onChange={handleInputChange}
-            />
-          </div>
+                <div className="form-outline mb-4">
+                  <label className="form-label" htmlFor="registerPassword">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="registerPassword"
+                    className="form-control"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-          <button
-            type="submit"
-            className="btn btn-primary btn-block mb-3"
-            onClick={handleSubmit}
-          >
-            Register
-          </button>
+                <div className="form-outline mb-4">
+                  <label
+                    className="form-label"
+                    htmlFor="registerRepeatPassword"
+                  >
+                    Repeat password
+                  </label>
+                  <input
+                    type="password"
+                    id="registerRepeatPassword"
+                    className="form-control"
+                    name="repeatPassword"
+                    value={formData.repeatPassword}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-          {errorMessage && (
-            <div className="error text-danger text-center mb-3">
-              {errorMessage}
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-block mb-3"
+                  onClick={handleSubmit}
+                >
+                  Register
+                </button>
+
+                {errorMessage && (
+                  <div className="error text-danger text-center mb-3">
+                    {errorMessage}
+                  </div>
+                )}
+
+                <div className="text-center">
+                  <p>
+                    Have an account? <Link to="/login">Login</Link>
+                  </p>
+                </div>
+              </form>
             </div>
-          )}
-
-          <div className="text-center">
-            <p>
-              Have an account? <Link to="/login">Login</Link>
-            </p>
           </div>
-        </form>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

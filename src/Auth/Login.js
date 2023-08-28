@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import userArray from "../Data/userArray";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+import { Container, Row, Col, Form } from "react-bootstrap"; // Import Bootstrap components
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -55,66 +58,69 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="login">
-        <div className="tab-content">
-          <h2 className="text-center text-muted">Login</h2>
-          <div
-            className="tab-pane fade show active login-form"
-            id="pills-login"
-            role="tabpanel"
-            aria-labelledby="tab-login"
-          >
-            <form className="login-form">
-              <div className="form-outline mb-4 mt-5">
-                <label className="form-label" htmlFor="loginName">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  id="loginName"
-                  className="form-control"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleInputChange}
-                />
-              </div>
+    <Container className="vh-100">
+      <Row className="justify-content-center align-items-center h-100">
+        <Col md={6} lg={4}>
+          <div className="login border rounded p-3">
+            <h2 className="text-center text-muted">Login</h2>
+            <div
+              className="tab-pane fade show active login-form"
+              id="pills-login"
+              role="tabpanel"
+              aria-labelledby="tab-login"
+            >
+              <form className="login-form">
+                <Form.Group className="form-outline mb-4">
+                  <label className="form-label" htmlFor="loginName">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    id="loginName"
+                    className="form-control"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
 
-              <div className="form-outline mb-4">
-                <label className="form-label" htmlFor="loginPassword">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="loginPassword"
-                  className="form-control"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="error text-danger text-center mb-3 d-none">
-                plaese enter your username and password
-              </div>
+                <Form.Group className="form-outline mb-4">
+                  <label className="form-label" htmlFor="loginPassword">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="loginPassword"
+                    className="form-control"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
 
-              <button
-                type="submit"
-                className="btn btn-primary btn-block mb-4"
-                onClick={handleSubmit}
-              >
-                Sign in
-              </button>
+                <div className="error text-danger text-center mb-3 d-none">
+                  Please enter your username and password.
+                </div>
 
-              <div className="text-center">
-                <p>
-                  Not a member? <Link to="/register">Register</Link>
-                </p>
-              </div>
-            </form>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-block mb-4"
+                  onClick={handleSubmit}
+                >
+                  Sign in
+                </button>
+
+                <div className="text-center">
+                  <p>
+                    Not a member? <Link to="/register">Register</Link>
+                  </p>
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
