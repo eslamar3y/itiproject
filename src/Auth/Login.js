@@ -58,6 +58,7 @@ const Login = () => {
     <div className="container">
       <div className="login">
         <div className="tab-content">
+          <h2 className="text-center text-muted">Login</h2>
           <div
             className="tab-pane fade show active login-form"
             id="pills-login"

@@ -72,100 +72,99 @@ const Register = () => {
 
   return (
     <div className="login">
-      <div className="tab-content">
-        <div className="register-form active" aria-labelledby="tab-register">
-          <form>
-            <div className="form-outline mb-4">
-              <label className="form-label" htmlFor="registerName">
-                Name
-              </label>
-              <input
-                type="text"
-                id="registerName"
-                className="form-control"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
+      <h2 className="text-center text-muted">Register</h2>
+      <div className="register-form active" aria-labelledby="tab-register">
+        <form>
+          <div className="form-outline mb-4">
+            <label className="form-label" htmlFor="registerName">
+              Name
+            </label>
+            <input
+              type="text"
+              id="registerName"
+              className="form-control"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="form-outline mb-4">
+            <label className="form-label" htmlFor="registerUsername">
+              Username
+            </label>
+            <input
+              type="text"
+              id="registerUsername"
+              className="form-control"
+              name="username"
+              value={formData.username}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="form-outline mb-4">
+            <label className="form-label" htmlFor="registerEmail">
+              Email
+            </label>
+            <input
+              type="email"
+              id="registerEmail"
+              className="form-control"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="form-outline mb-4">
+            <label className="form-label" htmlFor="registerPassword">
+              Password
+            </label>
+            <input
+              type="password"
+              id="registerPassword"
+              className="form-control"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div className="form-outline mb-4">
+            <label className="form-label" htmlFor="registerRepeatPassword">
+              Repeat password
+            </label>
+            <input
+              type="password"
+              id="registerRepeatPassword"
+              className="form-control"
+              name="repeatPassword"
+              value={formData.repeatPassword}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="btn btn-primary btn-block mb-3"
+            onClick={handleSubmit}
+          >
+            Register
+          </button>
+
+          {errorMessage && (
+            <div className="error text-danger text-center mb-3">
+              {errorMessage}
             </div>
+          )}
 
-            <div className="form-outline mb-4">
-              <label className="form-label" htmlFor="registerUsername">
-                Username
-              </label>
-              <input
-                type="text"
-                id="registerUsername"
-                className="form-control"
-                name="username"
-                value={formData.username}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="form-outline mb-4">
-              <label className="form-label" htmlFor="registerEmail">
-                Email
-              </label>
-              <input
-                type="email"
-                id="registerEmail"
-                className="form-control"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="form-outline mb-4">
-              <label className="form-label" htmlFor="registerPassword">
-                Password
-              </label>
-              <input
-                type="password"
-                id="registerPassword"
-                className="form-control"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div className="form-outline mb-4">
-              <label className="form-label" htmlFor="registerRepeatPassword">
-                Repeat password
-              </label>
-              <input
-                type="password"
-                id="registerRepeatPassword"
-                className="form-control"
-                name="repeatPassword"
-                value={formData.repeatPassword}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="btn btn-primary btn-block mb-3"
-              onClick={handleSubmit}
-            >
-              Register
-            </button>
-
-            {errorMessage && (
-              <div className="error text-danger text-center mb-3">
-                {errorMessage}
-              </div>
-            )}
-
-            <div className="text-center">
-              <p>
-                Have an account? <Link to="/login">Login</Link>
-              </p>
-            </div>
-          </form>
-        </div>
+          <div className="text-center">
+            <p>
+              Have an account? <Link to="/login">Login</Link>
+            </p>
+          </div>
+        </form>
       </div>
     </div>
   );
