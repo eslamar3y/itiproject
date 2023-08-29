@@ -71,10 +71,12 @@ function Header() {
             </Nav.Link>
           )}
           <Nav.Link className="position-relative">
-            <i className="fa-solid fa-cart-shopping"></i>
-            <span className="text-warning position-absolute top-0 end-2">
-              {cards}
-            </span>
+            <Link className="link" to="/cart">
+              <i className="fa-solid fa-cart-shopping"></i>
+              <span className="text-warning position-absolute top-0 end-2">
+                {cards}
+              </span>
+            </Link>
           </Nav.Link>
         </Nav>
       </Container>

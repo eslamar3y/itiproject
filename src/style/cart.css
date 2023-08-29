@@ -1,0 +1,33 @@
+/* cart.css */
+.cartContainer {
+  min-height: 80vh;
+}
+
+table {
+  width: 100%;
+}
+
+table img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.imgtd {
+  width: 300px;
+}
+
+table th,
+table td {
+  text-align: center;
+  padding: 10px;
+}
+
+.quantity {
+  width: 50px;
+  text-align: center;
+  border: none;
+}
+.fa-minus,
+.fa-plus {
+  cursor: pointer;
+}
