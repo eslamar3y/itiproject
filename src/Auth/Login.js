@@ -10,6 +10,7 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const _navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +33,11 @@ const Login = () => {
       if (user) {
         // User exists
         console.log("User exists");
+        // Save user to local storage
+        localStorage.setItem("user", JSON.stringify(user));
+        // Navigate to home page
+        _navigate("/");
+
         // Redirect to home page or perform further actions
       } else {
         // User does not exist
