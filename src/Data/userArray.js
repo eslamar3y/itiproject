@@ -1,8 +1,8 @@
 import UserClass from "./userClass";
 
 let userArray = [
-  new UserClass("Eslam", "eslam@gmail.com", "123456", "01025498461", "admin"),
-  new UserClass("Ahmed", "ahmed@gmail.com", "123456", "+201025498461", "user"),
+  new UserClass(1, "Eslam", "eslam@gmail.com", "01025498461", "123456", "admin"),
+  new UserClass(2, "Ahmed", "ahmed@gmail.com", "+201025498461", "123456", "user"),
 ];
 
 export default userArray;

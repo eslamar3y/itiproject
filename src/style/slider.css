@@ -1,0 +1,24 @@
+.item {
+    height: calc(100vh - 66px);
+    position: relative;
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.caption {
+    z-index: 2;
+    position: relative;
+}

@@ -1,0 +1,44 @@
+img {
+    width: 55px;
+}
+
+.link {
+    text-decoration: none;
+    color: #cecece;
+    transition: 0.3s;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.link:hover {
+    color: lightcyan;
+}
+
+.togeller {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.togeller i {
+    font-size: 26px;
+}
+
+@media screen and (max-width:600px) {
+    .d-links {
+        z-index: 100;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        height: fit-content !important;
+        padding: 10px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start;
+        background-color: #212529;
+    }
+}

@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+.img-container {
+    overflow: hidden;
+}
+
+.card-img {
+    height: 250px;
+    filter: grayscale(60%);
+    transition: 1s;
+}
+
+.card-img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.6) rotate(40deg);
+}
