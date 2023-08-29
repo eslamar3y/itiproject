@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../style/header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
-function Header() {
+function Header({ cards }) {
   const [openLinks, setOpenLinks] = useState(false);
-  const [cards, setCards] = useState(0);
 
   let _navigate = useNavigate();
 
@@ -19,6 +18,15 @@ function Header() {
       document.querySelector(".links").classList.add("d-none", "d-sm-flex");
     }
   };
+
+  // Function to update cart count
+  // const updateCartCount = () => {
+  //   let cart = localStorage.getItem("cart");
+  //   cart = JSON.parse(cart);
+  //   if (cart) {
+  //     setCards(cart.length);
+  //   }
+  // };
 
   let user = localStorage.getItem("user");
   if (user) {

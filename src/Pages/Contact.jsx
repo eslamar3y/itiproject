@@ -1,16 +1,18 @@
-import React from 'react'
-import Header from '../components/Header'
-import ContactSection from '../components/ContactSection'
-import Footer from '../components/Footer'
+import React, { useEffect } from "react";
+import Header from "../components/Header";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
 
-function Contact() {
-    return (
-        <div>
-            <Header />
-            <ContactSection />
-            <Footer />
-        </div>
-    )
+function Contact({ updateCartCount }) {
+  useEffect(() => {
+    updateCartCount();
+  }, []);
+  return (
+    <div>
+      <ContactSection />
+      <Footer />
+    </div>
+  );
 }
 
-export default Contact
+export default Contact;
