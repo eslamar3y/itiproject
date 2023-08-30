@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <Header cards={cards} />
+      <Header cards={cards} updateCartCount={updateCartCount} />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

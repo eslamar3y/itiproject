@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../style/header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 
-function Header({ cards }) {
+function Header({ cards, updateCartCount }) {
     const [openLinks, setOpenLinks] = useState(false);
 
     let _navigate = useNavigate();
@@ -27,6 +27,7 @@ function Header({ cards }) {
 
     let Logout = () => {
         localStorage.removeItem("user");
+        updateCartCount();
         _navigate("/");
     };
     // Function to update cart count
