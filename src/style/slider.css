@@ -22,3 +22,9 @@
     z-index: 2;
     position: relative;
 }
+
+.btn-order:hover {
+    transform: scale(1.2);
+    color: white !important;
+    transition: all 1s ease-out;
+}

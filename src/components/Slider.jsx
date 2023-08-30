@@ -28,7 +28,7 @@ function Slider() {
         <Carousel.Caption className="caption text-white">
           {user ? (
             <button
-              className="btn btn-warning fw-bold py-2 px-4 mb-3"
+              className="btn btn-warning fw-bold py-2 px-4 mb-3 btn-order"
               onClick={scrollToOrderSection}
             >
               order now
@@ -36,7 +36,7 @@ function Slider() {
           ) : (
             <Link
               to="/login"
-              className="btn btn-warning fw-bold py-2 px-4 mb-3"
+              className="btn btn-warning fw-bold py-2 px-4 mb-3 btn-order"
             >
               Join Us
             </Link>
@@ -52,7 +52,7 @@ function Slider() {
         <Carousel.Caption className="caption text-white">
           {user ? (
             <button
-              className="btn btn-warning fw-bold py-2 px-4 mb-3"
+              className="btn btn-warning fw-bold py-2 px-4 mb-3 btn-order"
               onClick={scrollToOrderSection}
             >
               order now
@@ -60,7 +60,7 @@ function Slider() {
           ) : (
             <Link
               to="/login"
-              className="btn btn-warning fw-bold py-2 px-4 mb-3"
+              className="btn btn-warning fw-bold py-2 px-4 mb-3 btn-order"
             >
               Join Us
             </Link>
@@ -76,7 +76,7 @@ function Slider() {
         <Carousel.Caption className="caption text-white">
           {user ? (
             <button
-              className="btn btn-warning fw-bold py-2 px-4 mb-3"
+              className="btn btn-warning fw-bold py-2 px-4 mb-3 btn-order"
               onClick={scrollToOrderSection}
             >
               order now
@@ -84,7 +84,7 @@ function Slider() {
           ) : (
             <Link
               to="/login"
-              className="btn btn-warning fw-bold py-2 px-4 mb-3"
+              className="btn btn-warning fw-bold py-2 px-4 mb-3 btn-order"
             >
               Join Us
             </Link>

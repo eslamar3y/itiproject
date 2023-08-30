@@ -22,36 +22,34 @@ const Users = () => {
       {/* Sidebar (wider and full height) */}
       <div
         className="sidebar bg-dark text-light p-4 text-center"
-        style={{ flexBasis: "15%", minHeight: "100vh" }}
+        style={{ flexBasis: "12%", minHeight: "100vh" }}
       >
         <h2 className="text-white">Sidebar</h2>
         <ul className="list-unstyled">
-          <li className=" mt-3">
-            <Link
-              to="/admin/products"
-              className="text-light text-decoration-none"
-            >
-              Products
-            </Link>
-          </li>
-          <li className=" mt-3">
-            <Link to="/admin/users" className="text-light text-decoration-none">
-              Users
-            </Link>
-          </li>
           <li className=" mt-5">
             <Link
-              to="/"
-              className="text-light text-decoration-none btn btn-outline-warning"
-              style={{ width: "70%" }}
+              to="/admin/products"
+              className="text-light text-decoration-none btn btn-outline-info" style={{ width: "120px" }}
             >
-              Go to home
+              Products list
+            </Link>
+          </li>
+          <li className=" mt-3">
+            <Link to="/admin/users" className="text-light text-decoration-none btn btn-outline-secondary" style={{ width: "120px" }}>
+              Users List
+            </Link>
+          </li>
+          <li className=" mt-3">
+            <Link
+              to="/"
+              className="text-light text-decoration-none btn btn-outline-warning" style={{ width: "120px" }}
+            >
+              Home
             </Link>
           </li>
           <li className=" mt-3">
             <button
-              className="text-light text-decoration-none btn btn-outline-danger"
-              style={{ width: "70%" }}
+              className="text-light text-decoration-none btn btn-outline-danger" style={{ width: "120px" }}
               onClick={() => {
                 _navigate("/");
                 localStorage.removeItem("user");

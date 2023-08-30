@@ -3,53 +3,60 @@ import { Table } from "react-bootstrap";
 import { CardsData } from "../../Data/CardsData";
 import { Link, useNavigate } from "react-router-dom";
 import "../../style/Dashboard.css";
+import AddData from "../../components/AddData";
 
 const Products = () => {
-  const [filteredproducts, setFilteredproducts] = useState(CardsData);
+  const [Data, setData] = useState(CardsData);
 
   let _navigate = useNavigate();
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure?")) {
-      const updatedUsers = filteredproducts.filter((item) => item.id !== id);
-      setFilteredproducts(updatedUsers);
+      const updatedUsers = Data.filter((item) => item.id !== id);
+      setData(updatedUsers);
     }
   };
+
+  const Add = (obj) => {
+    let newArr = [...Data, obj];
+    setData(newArr);
+  }
 
   return (
     <div className="products d-flex ">
       <div
         className="sidebar bg-dark text-light p-4 text-center"
-        style={{ flexBasis: "15%", "min-height": "100vh" }}
+        style={{ flexBasis: "12%", minHeight: "100vh" }}
       >
         <ul className="list-unstyled">
           <h2 className="text-white">Sidebar</h2>
-          <li className=" mt-3">
+          <li className=" mt-5">
             <Link
               to="/admin/products"
-              className="text-light text-decoration-none"
+              className="text-light text-decoration-none btn btn-outline-info"
+              style={{ width: "120px" }}
             >
-              Products
+              Products List
             </Link>
           </li>
           <li className=" mt-3">
-            <Link to="/admin/users" className="text-light text-decoration-none">
-              Users
+            <Link to="/admin/users" className="text-light text-decoration-none btn btn-outline-secondary" style={{ width: "120px" }}>
+              Users List
             </Link>
           </li>
-          <li className=" mt-5">
+          <li className=" mt-3">
             <Link
               to="/"
               className="text-light text-decoration-none btn btn-outline-warning"
-              style={{ width: "70%" }}
+              style={{ width: "120px" }}
             >
-              Go to home
+              Home
             </Link>
           </li>
           <li className=" mt-3">
             <button
               className="text-light text-decoration-none btn btn-outline-danger"
-              style={{ width: "70%" }}
+              style={{ width: "120px" }}
               onClick={() => {
                 _navigate("/");
                 localStorage.removeItem("user");
@@ -64,13 +71,11 @@ const Products = () => {
       {/* Content (takes remaining width) */}
       <div className="content p-4" style={{ flex: 1 }}>
         {/* Content area with a Bootstrap table */}
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between align-items-center">
           <h2 className=" text-center mb-5">Products</h2>
-          <button className="btn btn-primary" style={{ height: "38px" }}>
-            add product
-          </button>
+          <AddData cardData={Data} Add={Add} />
         </div>
-        <Table striped bordered hover responsive className="align-middle">
+        <Table striped bordered hover responsive className="align-middle dashboard-t">
           <thead>
             <tr>
               <th>ID</th>
@@ -83,22 +88,22 @@ const Products = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredproducts.map((item) => {
+            {Data.map((item) => {
               return (
                 <tr key={item.id}>
                   <td>{item.id}</td>
                   <td>{item.title}</td>
-                  <td>{item.price}</td>
+                  <td>${item.price}</td>
                   <td>{item.description}</td>
                   <td>
                     <img src={`/images/${item.image}`} alt="" />
                   </td>
                   <td>
-                    <button class="btn btn-warning">Edit</button>
+                    <button className="btn btn-warning">Edit</button>
                   </td>
                   <td>
                     <button
-                      class="btn btn-danger"
+                      className="btn btn-danger"
                       onClick={() => handleDelete(item.id)}
                     >
                       Delete
@@ -107,12 +112,6 @@ const Products = () => {
                 </tr>
               );
             })}
-            {/* <tr>
-                    <td>1</td>
-                    <td>Product 1</td>
-                    <td>$19.99</td>
-                    <td>Description of Product 1</td>
-                    </tr> */}
           </tbody>
         </Table>
       </div>
