@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import { CardsData } from "../../Data/CardsData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [filteredproducts, setFilteredproducts] = useState(CardsData);
+
+  let _navigate = useNavigate();
+
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure?")) {
+      const updatedUsers = filteredproducts.filter((item) => item.id !== id);
+      setFilteredproducts(updatedUsers);
+    }
+  };
+
   return (
     <div className="products d-flex ">
-      {/* Sidebar (wider and full height) */}
       <div
         className="sidebar bg-dark text-light p-4 text-center"
         style={{ flexBasis: "15%", "min-height": "100vh" }}
       >
-        <h2 className="text-white">Sidebar</h2>
         <ul className="list-unstyled">
+          <h2 className="text-white">Sidebar</h2>
           <li className=" mt-3">
             <Link
               to="/admin/products"
@@ -27,13 +36,39 @@ const Products = () => {
               Users
             </Link>
           </li>
+          <li className=" mt-5">
+            <Link
+              to="/"
+              className="text-light text-decoration-none btn btn-outline-warning"
+              style={{ width: "70%" }}
+            >
+              Go to home
+            </Link>
+          </li>
+          <li className=" mt-3">
+            <button
+              className="text-light text-decoration-none btn btn-outline-danger"
+              style={{ width: "70%" }}
+              onClick={() => {
+                _navigate("/");
+                localStorage.removeItem("user");
+              }}
+            >
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
 
       {/* Content (takes remaining width) */}
       <div className="content p-4" style={{ flex: 1 }}>
         {/* Content area with a Bootstrap table */}
-        <h2>Content</h2>
+        <div className="d-flex justify-content-between">
+          <h2 className=" text-center mb-5">Products</h2>
+          <button className="btn btn-primary" style={{ height: "38px" }}>
+            add product
+          </button>
+        </div>
         <Table striped bordered hover responsive className="align-middle">
           <thead>
             <tr>
@@ -47,7 +82,7 @@ const Products = () => {
             </tr>
           </thead>
           <tbody>
-            {CardsData.map((item) => {
+            {filteredproducts.map((item) => {
               return (
                 <tr key={item.id}>
                   <td>{item.id}</td>
@@ -61,7 +96,12 @@ const Products = () => {
                     <button class="btn btn-warning">Edit</button>
                   </td>
                   <td>
-                    <button class="btn btn-danger">Delete</button>
+                    <button
+                      class="btn btn-danger"
+                      onClick={() => handleDelete(item.id)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               );

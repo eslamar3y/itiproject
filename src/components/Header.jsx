@@ -6,12 +6,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 function Header({ cards, updateCartCount }) {
   const [openLinks, setOpenLinks] = useState(false);
 
-<<<<<<< HEAD
   let _navigate = useNavigate();
-=======
-function Header({ cards, updateCartCount }) {
-    const [openLinks, setOpenLinks] = useState(false);
->>>>>>> 54e718f3e354c27ad5d6bc2b245770b535283d3e
 
   const toggleNavbar = () => {
     setOpenLinks(!openLinks);
@@ -24,26 +19,10 @@ function Header({ cards, updateCartCount }) {
     }
   };
 
-<<<<<<< HEAD
   let user = localStorage.getItem("user");
   if (user) {
     user = JSON.parse(user);
   }
-=======
-    let Logout = () => {
-        localStorage.removeItem("user");
-        updateCartCount();
-        _navigate("/");
-    };
-    // Function to update cart count
-    // const updateCartCount = () => {
-    //   let cart = localStorage.getItem("cart");
-    //   cart = JSON.parse(cart);
-    //   if (cart) {
-    //     setCards(cart.length);
-    //   }
-    // };
->>>>>>> 54e718f3e354c27ad5d6bc2b245770b535283d3e
 
   let Logout = () => {
     localStorage.removeItem("user");
@@ -79,11 +58,19 @@ function Header({ cards, updateCartCount }) {
             </Link>
           </Nav.Link>
           {user ? (
-            <Nav.Link>
-              <Link className="link" to="#" onClick={Logout}>
-                <i className="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
-              </Link>
-            </Nav.Link>
+            user.role === "admin" ? (
+              <Nav.Link>
+                <Link className="link " to="/admin/products">
+                  DashBoard
+                </Link>
+              </Nav.Link>
+            ) : (
+              <Nav.Link>
+                <Link className="link" to="#" onClick={Logout}>
+                  <i className="fa-solid fa-arrow-right-from-bracket fa-lg"></i>
+                </Link>
+              </Nav.Link>
+            )
           ) : (
             <Nav.Link>
               <Link className="link" to="/login">

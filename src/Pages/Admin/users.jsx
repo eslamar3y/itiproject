@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import userArray from "../../Data/userArray";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Users = () => {
   // Create a state variable to hold the filtered user data
   const [filteredUsers, setFilteredUsers] = useState(userArray);
+
+  let _navigate = useNavigate();
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure?")) {
@@ -36,6 +38,27 @@ const Users = () => {
             <Link to="/admin/users" className="text-light text-decoration-none">
               Users
             </Link>
+          </li>
+          <li className=" mt-5">
+            <Link
+              to="/"
+              className="text-light text-decoration-none btn btn-outline-warning"
+              style={{ width: "70%" }}
+            >
+              Go to home
+            </Link>
+          </li>
+          <li className=" mt-3">
+            <button
+              className="text-light text-decoration-none btn btn-outline-danger"
+              style={{ width: "70%" }}
+              onClick={() => {
+                _navigate("/");
+                localStorage.removeItem("user");
+              }}
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </div>

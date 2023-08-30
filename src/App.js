@@ -39,10 +39,7 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
-=======
-      <Header cards={cards} updateCartCount={updateCartCount} />
->>>>>>> 54e718f3e354c27ad5d6bc2b245770b535283d3e
+      {/* <Header cards={cards} updateCartCount={updateCartCount} /> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route
