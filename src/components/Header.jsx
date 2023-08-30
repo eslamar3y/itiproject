@@ -3,14 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "../style/header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
-<<<<<<< HEAD
-function Header() {
-    const [openLinks, setOpenLinks] = useState(false);
-    const [cards, setCards] = useState(0);
-=======
+
 function Header({ cards }) {
-  const [openLinks, setOpenLinks] = useState(false);
->>>>>>> 3ddb4fca22b79165cff58c4fb247deb724e9afed
+    const [openLinks, setOpenLinks] = useState(false);
 
     let _navigate = useNavigate();
 
@@ -30,26 +25,18 @@ function Header({ cards }) {
         user = JSON.parse(user);
     }
 
-<<<<<<< HEAD
     let Logout = () => {
         localStorage.removeItem("user");
         _navigate("/");
     };
-=======
-  // Function to update cart count
-  // const updateCartCount = () => {
-  //   let cart = localStorage.getItem("cart");
-  //   cart = JSON.parse(cart);
-  //   if (cart) {
-  //     setCards(cart.length);
-  //   }
-  // };
-
-  let user = localStorage.getItem("user");
-  if (user) {
-    user = JSON.parse(user);
-  }
->>>>>>> 3ddb4fca22b79165cff58c4fb247deb724e9afed
+    // Function to update cart count
+    // const updateCartCount = () => {
+    //   let cart = localStorage.getItem("cart");
+    //   cart = JSON.parse(cart);
+    //   if (cart) {
+    //     setCards(cart.length);
+    //   }
+    // };
 
     return (
         <Navbar bg="dark" data-bs-theme="dark">
