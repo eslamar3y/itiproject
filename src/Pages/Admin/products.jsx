@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import { CardsData } from "../../Data/CardsData";
 import { Link, useNavigate } from "react-router-dom";
+import "../../style/Dashboard.css";
 
 const Products = () => {
   const [filteredproducts, setFilteredproducts] = useState(CardsData);

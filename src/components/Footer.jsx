@@ -18,13 +18,21 @@ function Footer() {
           <div className="col-12 text-center col-sm-6 text-sm-start col-md-3">
             <h4 className="mb-3">Our Store</h4>
             <ul className="list-unstyled">
-              <li className="mt-2">Store Locations</li>
-              <li className="mt-2">Store Hours</li>
-              <li className="mt-2">Store Events</li>
+              <li className="mt-2">
+                <Link to="/" className="text-decoration-none text-white">Home</Link>
+              </li>
+              <li className="mt-2">
+                <Link to="/about" className="text-decoration-none text-white">About</Link>
+              </li>
+              <li className="mt-2">
+                <Link to="/contact" className="text-decoration-none text-white">Contact Us</Link>
+              </li>
             </ul>
           </div>
           <div className="col-12 text-center col-sm-6 text-sm-start col-md-3">
-            <h4 className="mb-3">About Us</h4>
+            <h4 className="mb-3">
+              <Link to="/about" className="text-decoration-none text-white">About Us</Link>
+            </h4>
             <ul className="list-unstyled">
               <li className="mt-2">Our Story</li>
               <li className="mt-2">News</li>

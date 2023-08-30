@@ -77,14 +77,13 @@ const ProductDetails = ({ updateCartCount }) => {
 
   return (
     <>
-      <Container className="product-details mt-4">
+      <Container className="product-details mt-4 p-4 min-vh-100">
         <Row>
           <Col xs={12} md={6} lg={6} className="mb-4">
             <div className="all-images">
               <div className="side-images">
                 <img
                   src={`/Images/${product.image}`}
-                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
@@ -94,7 +93,6 @@ const ProductDetails = ({ updateCartCount }) => {
                 />
                 <img
                   src={`/Images/${productimgStart}_2.jpg`}
-                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
@@ -104,7 +102,6 @@ const ProductDetails = ({ updateCartCount }) => {
                 />
                 <img
                   src={`/Images/${productimgStart}_3.jpg`}
-                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
@@ -114,7 +111,6 @@ const ProductDetails = ({ updateCartCount }) => {
                 />
                 <img
                   src={`/Images/${productimgStart}_4.jpg`}
-                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
@@ -138,17 +134,20 @@ const ProductDetails = ({ updateCartCount }) => {
               <h2>{product.title}</h2>
               <p>{product.description}</p>
               <p>Price: ${product.price}</p>
-              <p className="btn btn-dark me-2 but" onClick={handleminus}>
-                <i className="fa fa-minus text-light"></i>
-              </p>
-              <input type="text" className="quantity" value="1" readOnly />
-              <p className=" btn btn-dark me-2 but" onClick={handleplus}>
-                <i className="fa fa-plus text-light"></i>
-              </p>
-              <br />
-              <Button onClick={addToCart} variant="primary" className="mt-3">
-                Add to Cart
-              </Button>
+              <div className="add-card d-flex justify-content-between align-items-center mt-5">
+                <div className="func-inc-dec">
+                  <div className="btn btn-dark but" onClick={handleminus}>
+                    <i className="fa fa-minus text-light"></i>
+                  </div>
+                  <input type="text" className="quantity text-warning fw-bold" value="1" readOnly />
+                  <div className=" btn btn-dark but" onClick={handleplus}>
+                    <i className="fa fa-plus text-light"></i>
+                  </div>
+                </div>
+                <Button onClick={addToCart} variant="primary">
+                  Add to Cart
+                </Button>
+              </div>
             </div>
           </Col>
         </Row>

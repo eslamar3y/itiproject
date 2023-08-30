@@ -1,6 +1,6 @@
 /* cart.css */
 .cartContainer {
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 table {
@@ -27,6 +27,7 @@ table td {
   text-align: center;
   border: none;
 }
+
 .fa-minus,
 .fa-plus {
   cursor: pointer;
