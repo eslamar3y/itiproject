@@ -1,6 +1,5 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { CardsData } from "../Data/CardsData";
@@ -85,6 +84,7 @@ const ProductDetails = ({ updateCartCount }) => {
               <div className="side-images">
                 <img
                   src={`/Images/${product.image}`}
+                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
@@ -94,6 +94,7 @@ const ProductDetails = ({ updateCartCount }) => {
                 />
                 <img
                   src={`/Images/${productimgStart}_2.jpg`}
+                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
@@ -103,6 +104,7 @@ const ProductDetails = ({ updateCartCount }) => {
                 />
                 <img
                   src={`/Images/${productimgStart}_3.jpg`}
+                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
@@ -112,6 +114,7 @@ const ProductDetails = ({ updateCartCount }) => {
                 />
                 <img
                   src={`/Images/${productimgStart}_4.jpg`}
+                  className="small-imgs"
                   alt={product.name}
                   onClick={() => {
                     document.getElementById(
