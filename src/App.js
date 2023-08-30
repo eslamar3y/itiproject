@@ -9,6 +9,8 @@ import Cart from "./Pages/Cart";
 import ProductDetails from "./Pages/ProductDetails";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
+import Products from "./Pages/Admin/products";
+import Users from "./Pages/Admin/users";
 
 function App() {
   // Define the cards state variable and its setter
@@ -21,6 +23,7 @@ function App() {
     if (cart) {
       let user = localStorage.getItem("user");
       if (!user) {
+        setCards(0);
       } else {
         user = JSON.parse(user);
         const currentCart = cart.filter((item) => item.user_id === user.id);
@@ -36,27 +39,63 @@ function App() {
 
   return (
     <>
-      <Header cards={cards} />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/" element={<Home updateCartCount={updateCartCount} />} />
+        <Route
+          path="/register"
+          element={
+            <>
+              <Register />
+            </>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header cards={cards} updateCartCount={updateCartCount} />
+              <Home updateCartCount={updateCartCount} />
+            </>
+          }
+        />
         <Route
           path="/about"
-          element={<About updateCartCount={updateCartCount} />}
+          element={
+            <>
+              <Header cards={cards} updateCartCount={updateCartCount} />
+              <About updateCartCount={updateCartCount} />
+            </>
+          }
         />
         <Route
           path="/contact"
-          element={<Contact updateCartCount={updateCartCount} />}
+          element={
+            <>
+              <Header cards={cards} updateCartCount={updateCartCount} />
+              <Contact updateCartCount={updateCartCount} />
+            </>
+          }
         />
         <Route
           path="/cart"
-          element={<Cart updateCartCount={updateCartCount} />}
+          element={
+            <>
+              <Header cards={cards} updateCartCount={updateCartCount} />
+              <Cart updateCartCount={updateCartCount} />
+            </>
+          }
         />
         <Route
           path="product/:id"
-          element={<ProductDetails updateCartCount={updateCartCount} />}
+          element={
+            <>
+              <Header cards={cards} updateCartCount={updateCartCount} />
+              <ProductDetails updateCartCount={updateCartCount} />
+            </>
+          }
         />
+        <Route path="/admin/products" element={<Products />} />
+        <Route path="/admin/users" element={<Users />} />
       </Routes>
     </>
   );

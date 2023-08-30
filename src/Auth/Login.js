@@ -31,12 +31,15 @@ const Login = () => {
         // console.log(user)
       );
       if (user) {
-        // User exists
-        console.log("User exists");
         // Save user to local storage
         localStorage.setItem("user", JSON.stringify(user));
-        // Navigate to home page
-        _navigate("/");
+        if (user.role === "admin") {
+          // Navigate to admin page
+          _navigate("/admin/products");
+        } else {
+          // Navigate to home page
+          _navigate("/");
+        }
 
         // Redirect to home page or perform further actions
       } else {
