@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import userArray from "../../Data/userArray";
-import { Link, useNavigate } from "react-router-dom";
+import SideBar from "../../components/SideBar";
 
 const Users = () => {
   // Create a state variable to hold the filtered user data
   const [filteredUsers, setFilteredUsers] = useState(userArray);
-
-  let _navigate = useNavigate();
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure?")) {
@@ -19,47 +17,8 @@ const Users = () => {
 
   return (
     <div className="users d-flex">
-      {/* Sidebar (wider and full height) */}
-      <div
-        className="sidebar bg-dark text-light p-4 text-center"
-        style={{ flexBasis: "12%", minHeight: "100vh" }}
-      >
-        <h2 className="text-white">Sidebar</h2>
-        <ul className="list-unstyled">
-          <li className=" mt-5">
-            <Link
-              to="/admin/products"
-              className="text-light text-decoration-none btn btn-outline-info" style={{ width: "120px" }}
-            >
-              Products list
-            </Link>
-          </li>
-          <li className=" mt-3">
-            <Link to="/admin/users" className="text-light text-decoration-none btn btn-outline-secondary" style={{ width: "120px" }}>
-              Users List
-            </Link>
-          </li>
-          <li className=" mt-3">
-            <Link
-              to="/"
-              className="text-light text-decoration-none btn btn-outline-warning" style={{ width: "120px" }}
-            >
-              Home
-            </Link>
-          </li>
-          <li className=" mt-3">
-            <button
-              className="text-light text-decoration-none btn btn-outline-danger" style={{ width: "120px" }}
-              onClick={() => {
-                _navigate("/");
-                localStorage.removeItem("user");
-              }}
-            >
-              Logout
-            </button>
-          </li>
-        </ul>
-      </div>
+      <SideBar />
+
 
       {/* Content (takes remaining width) */}
       <div className="content p-4" style={{ flex: 1 }}>
