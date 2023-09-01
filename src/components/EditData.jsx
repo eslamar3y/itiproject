@@ -1,10 +1,20 @@
-// EditData.js
-import React from 'react';
+import { useState , useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
-
-
+import "../style/editProduct.css"
 function EditData(props) {
-  const { show, onHide, editedProduct, handleEditChange, handleSaveEdit } = props;
+  const {
+    show,
+    onHide,
+    editedProduct,
+    handleEditChange,
+    handleSaveEdit,
+   
+  } = props;
+  const [image, setImage] = useState(editedProduct.image || ''); // Initialize image state with editedProduct.image
+  useEffect(() => {
+    // Update image state when editedProduct.image changes
+    setImage(editedProduct.image || '');
+  }, [editedProduct.image]);
 
   const handleSaveChanges = () => {
     handleSaveEdit(editedProduct);
@@ -17,10 +27,9 @@ function EditData(props) {
       </Modal.Header>
       <Modal.Body>
         <form>
-        <div className="form-group">
-        <label className='form-label' htmlFor="input-id">Id</label>
+          <div className="form-group">
+            <label className='form-label' htmlFor="input-id">Id</label>
             <input
-            
               type="text"
               name="id"
               id="input-id"
@@ -30,7 +39,7 @@ function EditData(props) {
             />
           </div>
           <div className="form-group">
-          <label className='form-label' htmlFor="input-title">Title</label>
+            <label className='form-label' htmlFor="input-title">Title</label>
             <input
               type="text"
               name="title"
@@ -41,7 +50,7 @@ function EditData(props) {
             />
           </div>
           <div className="form-group">
-          <label className='form-label' htmlFor="input-price">Price</label>
+            <label className='form-label' htmlFor="input-price">Price</label>
             <input
               type="text"
               name="price"
@@ -52,7 +61,7 @@ function EditData(props) {
             />
           </div>
           <div className="form-group">
-          <label className='form-label' htmlFor="input-des">Description</label>
+            <label className='form-label' htmlFor="input-des">Description</label>
             <input
               type="text"
               name="description"
@@ -62,7 +71,10 @@ function EditData(props) {
               onChange={handleEditChange}
             />
           </div>
-          {/* Add Image */}
+          <div className="form-group">
+            <label className='form-label' htmlFor="input-image">Image</label>
+            <img src={`/images/${image}`} className='product-image' alt="" />
+          </div>
         </form>
       </Modal.Body>
       <Modal.Footer>
@@ -78,3 +90,6 @@ function EditData(props) {
 }
 
 export default EditData;
+
+
+
