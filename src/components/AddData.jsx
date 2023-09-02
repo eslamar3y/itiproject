@@ -68,7 +68,7 @@ function AddData(props) {
                         <div className="img-upload d-flex flex-column align-items-center" onClick={handleImage}>
                             {image ? <img src={`/Images/${image}`} alt='' /> :
                                 <>
-                                    < p className='text-black-50 m-0 fs-5 fw-bold'>Upload Image</p>
+                                    < p className='upload-p text-black-50 m-0 fs-5 fw-bold'>Upload Image</p>
                                     <img src="/Images/upload.jpg" alt='' />
                                 </>
                             }

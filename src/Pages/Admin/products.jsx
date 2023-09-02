@@ -19,14 +19,17 @@ const Products = () => {
       setData(updatedData);
     }
   };
-  const [editedImage , setEditedImage] = useState('');
+
 
   const handleEdit = (product, index) => {
     setEditedProduct(product);
     setEditedIndex(index);
     setShowEditModal(true);
-};
-
+  };
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditedProduct({ ...editedProduct, [name]: value });
+  };
   const handleSaveEdit = (updatedProduct) => {
     const updatedData = [...Data];
     updatedData[editedIndex] = updatedProduct;
@@ -34,14 +37,7 @@ const Products = () => {
     setShowEditModal(false);
   };
 
-  const handleEditChange = (e) => {
-    const { name, value } = e.target;
-    setEditedProduct({ ...editedProduct, [name]: value });
-  };
-  const onImageChange = (e, imageUrl) => {
-    const { name, value } = e.target;
-    setEditedProduct({ ...editedProduct, [name]: value, image: imageUrl });
-};
+
   const Add = (obj) => {
     let newArr = [...Data, obj];
     setData(newArr);
@@ -100,17 +96,14 @@ const Products = () => {
       </div>
 
       <EditData
-  show={showEditModal}
-  onHide={() => setShowEditModal(false)}
-  editedProduct={editedProduct}
-  handleEditChange={handleEditChange}
-  handleSaveEdit={handleSaveEdit}
-  onImageChange={onImageChange}
-  editedImage={editedImage} 
+        show={showEditModal}
+        onHide={() => setShowEditModal(false)}
+        editedProduct={editedProduct}
+        handleEditChange={handleEditChange}
+        handleSaveEdit={handleSaveEdit}
       />
     </div>
   );
 };
 
 export default Products;
- 
