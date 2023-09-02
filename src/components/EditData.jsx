@@ -1,6 +1,6 @@
-import { useState , useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import "../style/editProduct.css"
+import "../style/addProduct.css"
 function EditData(props) {
   const {
     show,
@@ -8,13 +8,23 @@ function EditData(props) {
     editedProduct,
     handleEditChange,
     handleSaveEdit,
-   
   } = props;
   const [image, setImage] = useState(editedProduct.image || ''); // Initialize image state with editedProduct.image
   useEffect(() => {
     // Update image state when editedProduct.image changes
     setImage(editedProduct.image || '');
   }, [editedProduct.image]);
+
+  let inputRef = useRef();
+  const handleImage = () => {
+    inputRef.current.click();
+  }
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    console.log(file.name);
+    editedProduct.image = file.name;
+    setImage(editedProduct.image);
+  }
 
   const handleSaveChanges = () => {
     handleSaveEdit(editedProduct);
@@ -71,9 +81,14 @@ function EditData(props) {
               onChange={handleEditChange}
             />
           </div>
-          <div className="form-group">
-            <label className='form-label' htmlFor="input-image">Image</label>
-            <img src={`/images/${image}`} className='product-image' alt="" />
+          <div className="img-upload d-flex flex-column align-items-center" onClick={handleImage}>
+            {image ? <img src={`/Images/${image}`} alt='' /> :
+              <>
+                < p className='upload-p text-black-50 m-0 fs-5 fw-bold'>Upload Image</p>
+                <img src="/Images/upload.jpg" alt='' />
+              </>
+            }
+            <input type="file" ref={inputRef} onChange={handleImageChange} className='d-none' />
           </div>
         </form>
       </Modal.Body>
