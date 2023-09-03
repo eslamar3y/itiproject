@@ -1,11 +1,10 @@
-// Products.js
-import React, { useState } from 'react';
-import { Table } from 'react-bootstrap';
-import { CardsData } from '../../Data/CardsData';
-import '../../style/Dashboard.css';
-import AddData from '../../components/AddData';
-import SideBar from '../../components/SideBar';
-import EditData from '../../components/EditData';
+import React, { useState } from "react";
+import { Table } from "react-bootstrap";
+import { CardsData } from "../../Data/CardsData";
+import "../../style/Dashboard.css";
+import AddData from "../../components/AddData";
+import SideBar from "../../components/SideBar";
+import EditData from "../../components/EditData";
 
 const Products = () => {
   const [Data, setData] = useState(CardsData);
@@ -14,12 +13,11 @@ const Products = () => {
   const [showEditModal, setShowEditModal] = useState(false);
 
   const handleDelete = (id) => {
-    if (window.confirm('Are you sure?')) {
+    if (window.confirm("Are you sure?")) {
       const updatedData = Data.filter((item) => item.id !== id);
       setData(updatedData);
     }
   };
-
 
   const handleEdit = (product, index) => {
     setEditedProduct(product);
@@ -37,7 +35,6 @@ const Products = () => {
     setShowEditModal(false);
   };
 
-
   const Add = (obj) => {
     let newArr = [...Data, obj];
     setData(newArr);
@@ -46,12 +43,14 @@ const Products = () => {
   return (
     <div className="products d-flex">
       <SideBar />
-      <div className="content p-4" style={{ flex: 1 }}>
+
+      <div className="content p-4 flex-grow-1">
+        {/* Content area */}
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="text-center mb-5">Products</h2>
           <AddData cardData={Data} Add={Add} />
         </div>
-        <Table striped bordered hover responsive className="align-middle dashboard-t">
+        <Table striped bordered hover responsive className="align-middle">
           <thead>
             <tr>
               <th>ID</th>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import userArray from "../../Data/userArray";
 import SideBar from "../../components/SideBar";
+import "../../style/Dashboard.css";
 
 const Users = () => {
   // Create a state variable to hold the filtered user data
@@ -18,7 +19,6 @@ const Users = () => {
   return (
     <div className="users d-flex">
       <SideBar />
-
 
       {/* Content (takes remaining width) */}
       <div className="content p-4" style={{ flex: 1 }}>

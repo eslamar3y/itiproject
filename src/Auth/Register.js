@@ -6,7 +6,7 @@ import { Container, Row, Col, Form } from "react-bootstrap"; // Import Bootstrap
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    // name: "",
     username: "",
     email: "",
     phoneNumber: "",
@@ -71,8 +71,10 @@ const Register = () => {
     // You can proceed with the registration logic here
     console.log("Registration successful!");
     //   make new user object and push it to userArray
+    let x = 3;
     const newUser = new UserClass(
-      formData.name,
+      x++,
+      formData.username,
       formData.email,
       formData.phoneNumber,
       formData.password,
@@ -90,8 +92,16 @@ const Register = () => {
   };
 
   return (
-    <Container className="vh-100">
-      <Row className="justify-content-center align-items-center h-100">
+    <Container
+      className="vh-100"
+      style={{
+        minWidth: "100%",
+        height: "100%",
+        backgroundImage: "url(Images/bg_3.jpg)",
+        backgroundSize: "cover",
+      }}
+    >
+      <Row className="justify-content-center register align-items-center h-100">
         <Col md={6} lg={4}>
           <div>
             <h2 className="text-center text-muted">Register</h2>
@@ -100,7 +110,7 @@ const Register = () => {
               aria-labelledby="tab-register"
             >
               <form>
-                <div className="form-outline mb-4">
+                {/* <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="registerName">
                     Name
                   </label>
@@ -112,7 +122,7 @@ const Register = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                   />
-                </div>
+                </div> */}
 
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="registerUsername">

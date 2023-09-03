@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import userArray from "../Data/userArray";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form } from "react-bootstrap"; // Import Bootstrap components
 
@@ -67,11 +66,19 @@ const Login = () => {
   };
 
   return (
-    <Container className="vh-100">
+    <Container
+      className="vh-100 logindiv"
+      style={{
+        minWidth: "100%",
+        height: "100%",
+        backgroundImage: "url(Images/bg_3.jpg)",
+        backgroundSize: "cover",
+      }}
+    >
       <Row className="justify-content-center align-items-center h-100">
         <Col md={6} lg={4}>
           <div className="login border rounded p-3">
-            <h2 className="text-center text-muted">Login</h2>
+            <h2 className="text-center ">Login</h2>
             <div
               className="tab-pane fade show active login-form"
               id="pills-login"

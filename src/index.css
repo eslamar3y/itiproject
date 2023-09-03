@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.login,
+.register {
+  backdrop-filter: blur(5px);
+  color: #fff;
+}

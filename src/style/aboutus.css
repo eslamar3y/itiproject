@@ -1,146 +1,46 @@
-.imgabout {
-
-    background-image: url(/public/Images/about2.jpg);
-    width: 100vw;
-    height: 65vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin-top: 70px;
-    padding-top: 40px;
-    animation-name: imgg;
-    animation-duration: 1s;
-    transition: all 2s;
-
-
+.main {
+  display: block;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@keyframes imgg {
-    0% {
-        width: 0px;
-    }
-
-    100% {
-        width: 100%;
-    }
-
-}
-
-.imgabout:hover {
-    transform: scale(1, 1.1);
-}
-
-.secdiv {
-    margin-top: 140px;
-    margin-bottom: 70px;
-    margin: 160px ;
-    color: rgb(252, 252, 252);
-
-}
-
-.secdiv h1 {
-    font-family: 'Playball', cursive;
-    font-size: 80px;
-
-}
-
-.secdiv h1:hover,
-.secdiv h4:hover,
-.secdiv h6:hover{
-    transform: scale(1, 1.4);
-    color: rgb(199, 199, 180);
-}
-
-.secdiv h4 {
-    margin-top: 60px;
-    font-family: 'ADLaM Display', cursive;
-
-}
-
-.secdiv h6 {
-    font-family: 'ADLaM Display', cursive;
-    margin-bottom: 15px;
-}
-
-
-.animate h1 {
+@media screen and (max-width: 800px) {
+  .second .one {
     color: white;
-    font-family: 'Playball', cursive;
-    padding-top: 50px;
-    transition: all 2s;
-
-
-
-
-
+    background-color: #212529;
+    margin-top: 100px;
+    /* min-height: 100vh; */
+  }
+}
+h1:hover,
+h5:hover,
+h3:hover {
+  color: #750909;
+  cursor: pointer;
 }
 
-.animate h1:hover {
-    transform: scale(1.1, 1.4);
-
-}
-.animate:hover{
-    transform: scale(1.1, 1.1);
-
+.second {
+  margin: 40px 0;
+  display: flex;
+  position: relative;
+  width: 70vw;
 }
 
-.animate {
-    text-align: center;
-    margin-top: 60px;
-    width: 100%;
-    height: 150px;
-    background-image: linear-gradient(to left, rgb(82, 69, 69), rgba(97, 7, 7, 0.5));
-    animation-name: square;
-    animation-duration: 2s;
-    transition: all 2s;
-
+.two {
+  height: 480px;
+  background-image: url(/public/Images/4.jpg);
+  position: absolute;
+  top: 70px;
+  left: 750px;
+  width: 28vw;
+  height: 420px;
+  background-position: center;
 }
 
-@keyframes square {
-
-
-
-    0% {
-        background-image: linear-gradient(to right, brown, gray);
-        width: 0%;
-
-
-    }
-
-
-
-
-
-
-    100% {
-        background-image: linear-gradient(to right, gray, brown);
-        width: 100%;
-        height: 200px;
-        padding-top: 60px;
-    }
-}
-
-.thdiv{
-
-    width: 100vw;
-    height: 50vh;
-    background-image: url(/public/Images/about5.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin-bottom: 70px;
-   
-
- } 
-.thdiv .thdiv-div{
-
-    padding-top: 140px;
-    margin-bottom: 70px;
-    margin: 100px ;
-    color: rgb(252, 252, 252);
-
-}
-.thdiv .thdiv-div h1{
-    margin-top: 70px;
-    font-family: 'ADLaM Display', cursive;
+.one {
+  padding: 70px;
+  width: 50%;
+  height: 530px;
+  background-color: rgb(238, 238, 238);
 }
