@@ -97,6 +97,8 @@ function App() {
         />
         <Route path="/admin/products" element={<Products />} />
         <Route path="/admin/users" element={<Users />} />
+
+        <Route path="/checkout" element={<h1>Checkout</h1>} />
       </Routes>
     </>
   );
