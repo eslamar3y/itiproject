@@ -43,7 +43,7 @@ export const CardsData = [
     id: 6,
     title: "Very Expensive Pizza",
     image: "6.jpeg",
-    price: 1997.99,
+    price: 200,
     description:
       "Meat Lover's Pizza has a crispy crust topped with ground beef, sausage, bacon, pepperoni, and ham.",
   },
@@ -51,7 +51,7 @@ export const CardsData = [
     id: 7,
     title: "cheese Pizza",
     image: "7.jpg",
-    price: 195,
+    price: 75,
     description:
       "The tasty reward is a crispy-bottomed, airy crust topped with tangy tomato sauce, and milky mozzarella.",
   },

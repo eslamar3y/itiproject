@@ -12,6 +12,7 @@ import Header from "./components/Header";
 import Products from "./Pages/Admin/products";
 import Users from "./Pages/Admin/users";
 import Checkout from "./Pages/Checkout";
+import Catalog from "./Pages/ProductCatalog";
 
 function App() {
   // Define the cards state variable and its setter
@@ -66,6 +67,15 @@ function App() {
             <>
               <Header cards={cards} updateCartCount={updateCartCount} />
               <About updateCartCount={updateCartCount} />
+            </>
+          }
+        />
+        <Route
+          path="/product-catalog"
+          element={
+            <>
+              <Header cards={cards} updateCartCount={updateCartCount} />
+              <Catalog updateCartCount={updateCartCount} />
             </>
           }
         />
