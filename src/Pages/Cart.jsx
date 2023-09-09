@@ -123,6 +123,8 @@ const Cart = ({ updateCartCount }) => {
     user = JSON.parse(user);
     let cart = localStorage.getItem("cart");
     cart = JSON.parse(cart);
+    // get cart items where user id matches current user id
+    cart = cart.filter((item) => item.user_id === user.id);
 
     // calculate total price
     let total = 0;
@@ -140,11 +142,13 @@ const Cart = ({ updateCartCount }) => {
     // create order in locla storage
     let orders = localStorage.getItem("orders");
     orders = JSON.parse(orders);
+
     if (orders) {
       orders.push(order);
     } else {
       orders = [order];
     }
+
     localStorage.setItem("orders", JSON.stringify(orders));
 
     // clear cart items where user id matches current user id

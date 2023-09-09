@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Products from "./Pages/Admin/products";
 import Users from "./Pages/Admin/users";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   // Define the cards state variable and its setter
@@ -98,7 +99,7 @@ function App() {
         <Route path="/admin/products" element={<Products />} />
         <Route path="/admin/users" element={<Users />} />
 
-        <Route path="/checkout" element={<h1>Checkout</h1>} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </>
   );
