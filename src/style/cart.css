@@ -8,12 +8,12 @@ table {
 }
 
 table img {
-  width: 200px;
+  width: 10rem;
   border-radius: 10px;
 }
 
 .imgtd {
-  width: 300px;
+  width: 5rem;
 }
 
 table th,
@@ -31,4 +31,9 @@ table td {
 .fa-minus,
 .fa-plus {
   cursor: pointer;
+}
+
+.cartContainer {
+  min-height: 100vh;
+  overflow-x: auto; /* Add horizontal scrolling for overflowing content */
 }

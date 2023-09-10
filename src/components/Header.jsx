@@ -48,13 +48,13 @@ function Header({ cards, updateCartCount }) {
             </Link>
           </Nav.Link>
           <Nav.Link>
-            <Link className="link" to="/about">
-              About
+            <Link className="link" to="/product-catalog">
+              Products
             </Link>
           </Nav.Link>
           <Nav.Link>
-            <Link className="link" to="/product-catalog">
-              Products
+            <Link className="link" to="/about">
+              About
             </Link>
           </Nav.Link>
           <Nav.Link>

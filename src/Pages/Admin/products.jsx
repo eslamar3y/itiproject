@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { CardsData } from "../../Data/CardsData";
 import "../../style/Dashboard.css";
@@ -7,6 +7,17 @@ import SideBar from "../../components/SideBar";
 import EditData from "../../components/EditData";
 
 const Products = () => {
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  // check if the user is logged in and has access to this page
+  if (!user) {
+    // redirect to login page
+    window.location.href = "/login";
+  } else if (user.role !== "admin") {
+    // redirect to home page
+    window.location.href = "/";
+  }
+
   const [Data, setData] = useState(CardsData);
   const [editedProduct, setEditedProduct] = useState({});
   const [editedIndex, setEditedIndex] = useState(null);

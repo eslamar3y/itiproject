@@ -5,6 +5,17 @@ import SideBar from "../../components/SideBar";
 import "../../style/Dashboard.css";
 
 const Users = () => {
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  // check if the user is logged in and has access to this page
+  if (!user) {
+    // redirect to login page
+    window.location.href = "/login";
+  } else if (user.role !== "admin") {
+    // redirect to home page
+    window.location.href = "/";
+  }
+
   // Create a state variable to hold the filtered user data
   const [filteredUsers, setFilteredUsers] = useState(userArray);
 

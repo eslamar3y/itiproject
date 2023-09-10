@@ -5,6 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form } from "react-bootstrap"; // Import Bootstrap components
 
 const Login = () => {
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  if (user) {
+    window.location.href = "/";
+  }
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",

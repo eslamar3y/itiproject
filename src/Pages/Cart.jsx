@@ -162,152 +162,154 @@ const Cart = ({ updateCartCount }) => {
   return (
     <>
       <div className="container cartContainer pt-5">
-        <table>
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Item</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Total</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentCart.length > 0 ? (
-              currentCart.map((item) => {
-                return (
-                  <tr key={item.id}>
-                    <td className={`imgtd imgtd-${item.id}`}>
-                      <img
-                        src={`Images/${item.image}`}
-                        alt="Item"
-                        className="itemImage"
-                      />
-                    </td>
-                    <td>
-                      <Link
-                        to={`/product/${item.id}`}
-                        style={{ color: "black", textDecoration: "none" }}
-                      >
-                        {item.title}
-                      </Link>
-                    </td>
-                    <td>
-                      <i
-                        className="fa-solid fa-minus"
-                        onClick={() => handleminus(item.id)}
-                      ></i>
-                      <input
-                        type="text"
-                        className={`quantity quantity-${item.id}`}
-                        value={item.quantity}
-                        readOnly
-                      />
-                      <i
-                        className="fa-solid fa-plus"
-                        onClick={() => handleplus(item.id)}
-                      ></i>
-                    </td>
-                    <td className={`price price-${item.id}`}>{item.price}</td>
-                    <td className={`tprice tprice-${item.id}`}>
-                      {(item.price * item.quantity).toFixed(2)}
-                    </td>
-                    <td>
-                      <i
-                        className="fa-solid fa-trash text-danger"
-                        onClick={() => deleteItem(item.id)}
-                        style={{ cursor: "pointer" }}
-                      ></i>
-                    </td>
-                  </tr>
-                );
-              })
-            ) : (
+        <div className="table-container">
+          <table>
+            <thead>
               <tr>
-                <td colSpan={6} className="p-5">
-                  <h6>No Items in the cart</h6>
-                </td>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Remove</th>
               </tr>
-            )}
-            {currentCart.length > 0 && (
-              <>
+            </thead>
+            <tbody>
+              {currentCart.length > 0 ? (
+                currentCart.map((item) => {
+                  return (
+                    <tr key={item.id}>
+                      <td className={`imgtd imgtd-${item.id}`}>
+                        <img
+                          src={`Images/${item.image}`}
+                          alt="Item"
+                          className="itemImage"
+                        />
+                      </td>
+                      <td>
+                        <Link
+                          to={`/product/${item.id}`}
+                          style={{ color: "black", textDecoration: "none" }}
+                        >
+                          {item.title}
+                        </Link>
+                      </td>
+                      <td>
+                        <i
+                          className="fa-solid fa-minus"
+                          onClick={() => handleminus(item.id)}
+                        ></i>
+                        <input
+                          type="text"
+                          className={`quantity quantity-${item.id}`}
+                          value={item.quantity}
+                          readOnly
+                        />
+                        <i
+                          className="fa-solid fa-plus"
+                          onClick={() => handleplus(item.id)}
+                        ></i>
+                      </td>
+                      <td className={`price price-${item.id}`}>{item.price}</td>
+                      <td className={`tprice tprice-${item.id}`}>
+                        {(item.price * item.quantity).toFixed(2)}
+                      </td>
+                      <td>
+                        <i
+                          className="fa-solid fa-trash text-danger"
+                          onClick={() => deleteItem(item.id)}
+                          style={{ cursor: "pointer" }}
+                        ></i>
+                      </td>
+                    </tr>
+                  );
+                })
+              ) : (
                 <tr>
-                  <td colSpan={6} className="text-end">
-                    <button
-                      className="btn btn-primary"
-                      onClick={handlecheckout}
-                    >
-                      Checkout
-                    </button>
+                  <td colSpan={6} className="p-5" style={{ height: "70vh" }}>
+                    <h6>No Items in the cart</h6>
                   </td>
                 </tr>
-              </>
-            )}
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-            </tr>
-            <tr>
-              <td colspan="6">
-                <h3>Last Order</h3>
-              </td>
-            </tr>
-            <tr>
-              {lastOrder ? (
-                <td colspan="6">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {lastOrder.cart.map((item, i) => {
-                        return (
-                          <tr key={i}>
-                            <td>{item.title}</td>
-                            <td>{item.quantity}</td>
-                            <td>{item.price}</td>
-                            <td>{(item.price * item.quantity).toFixed(2)}</td>
-                            <td></td>
-                          </tr>
-                        );
-                      })}
-                      <tr>
-                        <td colspan="2">
-                          <h5>Order Total</h5>
-                        </td>
-                        <td colspan="3">
-                          <h5>{lastOrder.total}</h5>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              ) : (
-                <td colspan="6">
-                  <h5>No recent orders</h5>
-                </td>
               )}
-            </tr>
-          </tbody>
-        </table>
+              {currentCart.length > 0 && (
+                <>
+                  <tr>
+                    <td colSpan={6} className="text-end">
+                      <button
+                        className="btn btn-primary"
+                        onClick={handlecheckout}
+                      >
+                        Checkout
+                      </button>
+                    </td>
+                  </tr>
+                </>
+              )}
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="6">
+                  <h3>Last Order</h3>
+                </td>
+              </tr>
+              <tr>
+                {lastOrder ? (
+                  <td colspan="6">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                          <th>Total</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {lastOrder.cart.map((item, i) => {
+                          return (
+                            <tr key={i}>
+                              <td>{item.title}</td>
+                              <td>{item.quantity}</td>
+                              <td>{item.price}</td>
+                              <td>{(item.price * item.quantity).toFixed(2)}</td>
+                              <td></td>
+                            </tr>
+                          );
+                        })}
+                        <tr>
+                          <td colspan="2">
+                            <h5>Order Total</h5>
+                          </td>
+                          <td colspan="3">
+                            <h5>{lastOrder.total}</h5>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                ) : (
+                  <td colspan="6">
+                    <h5>No recent orders</h5>
+                  </td>
+                )}
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <Footer />
     </>
