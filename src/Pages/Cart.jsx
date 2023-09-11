@@ -106,7 +106,7 @@ const Cart = ({ updateCartCount }) => {
 
   //   get all orders for the current user
   let userOrders = [];
-  if (user) {
+  if (orders && user) {
     userOrders = orders.filter((order) => {
       if (order.user.id === user.id) {
         return order.cart;
