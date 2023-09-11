@@ -41,6 +41,6 @@ h3:hover {
 .one {
   padding: 70px;
   width: 50%;
-  height: 530px;
+  /* height: 530px; */
   background-color: rgb(238, 238, 238);
 }
