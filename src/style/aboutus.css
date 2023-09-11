@@ -8,11 +8,21 @@
 @media screen and (max-width: 800px) {
   .second .one {
     color: white;
+    padding: 3rem 1rem;
     background-color: #212529;
     margin-top: 100px;
-    /* min-height: 100vh; */
+    text-align: center;
+  }
+
+  .second .one h5 {
+    margin-bottom: 1rem;
+  }
+
+  .second .one p {
+    color: #ffffffb2;
   }
 }
+
 h1:hover,
 h5:hover,
 h3:hover {
@@ -41,6 +51,5 @@ h3:hover {
 .one {
   padding: 70px;
   width: 50%;
-  /* height: 530px; */
   background-color: rgb(238, 238, 238);
 }
