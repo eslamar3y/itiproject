@@ -77,7 +77,7 @@ const Register = () => {
     // You can proceed with the registration logic here
     console.log("Registration successful!");
     //   make new user object and push it to userArray
-    let x = 3;
+    let x = userArray.length + 1;
     const newUser = new UserClass(
       x++,
       formData.username,
@@ -116,20 +116,6 @@ const Register = () => {
               aria-labelledby="tab-register"
             >
               <form>
-                {/* <div className="form-outline mb-4">
-                  <label className="form-label" htmlFor="registerName">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="registerName"
-                    className="form-control"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                  />
-                </div> */}
-
                 <div className="form-outline mb-4">
                   <label className="form-label" htmlFor="registerUsername">
                     Username

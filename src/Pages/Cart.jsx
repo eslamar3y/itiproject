@@ -35,8 +35,6 @@ const Cart = ({ updateCartCount }) => {
       parseInt(quantity.value) * parseFloat(price.innerHTML.replace("$", ""));
     tprice.innerHTML = `$${totalPrice.toFixed(2)}`;
     updateCartCount();
-
-    // Update total price at the bottom of the table
   };
 
   let handleminus = (id) => {
